@@ -12,3 +12,5 @@ Usage
 ```<StarRating max={5} />```
 
 Renders 5 stars to select a rating out of 5.
+
+<img src="http://g.recordit.co/PG4jBeFA9E.gif" />
