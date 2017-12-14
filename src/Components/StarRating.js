@@ -80,6 +80,7 @@ class StarRating extends Component{
         return(
             <div>
                 {stars}
+                <div>Rating selected: {this.state.rated}</div>
             </div>
         )
     }
