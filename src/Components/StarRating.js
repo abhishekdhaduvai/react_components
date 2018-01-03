@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Icon from 'react-icons-kit';
-import { starEmpty } from 'react-icons-kit/icomoon/starEmpty';
 
 class StarRating extends Component{
 
