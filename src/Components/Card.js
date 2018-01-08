@@ -8,13 +8,15 @@ class Card extends React.Component{
         const { icon, headerText, children } = this.props
         return (
             <div style={styles.card}>
-                <div>
-                    <FontAwesome 
-                        name = {icon} 
-                        size={'2x'}/>
-                    <span style={styles.headerText}>{headerText}</span>
-                </div>
-                <hr style={styles.divider}></hr>
+                {icon !== undefined && headerText!== undefined && 
+                    <div>
+                        <FontAwesome 
+                            name = {icon} 
+                            size={'2x'}/>
+                        <span style={styles.headerText}>{headerText}</span>
+                        <hr style={styles.divider}></hr>
+                    </div>
+                }
                 <div>{children}</div>
             </div>
         )
