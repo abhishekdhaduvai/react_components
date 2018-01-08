@@ -59,4 +59,4 @@ Usage
 </Card>
 ```
 
-<img src="https://ibb.co/c4EKK6" />
+<img src="https://image.ibb.co/mSWc6m/Card_Component.png" />
