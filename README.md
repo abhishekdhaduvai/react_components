@@ -50,3 +50,13 @@ You can also render a horizontal bar by changing the vertical prop to {false}
 
 <img src="http://g.recordit.co/kSGzd2FDBM.gif" />
 
+## Card Component
+
+Usage
+```
+<Card icon={"linode"} headerText={"Sample Card"}>
+      <-- Body -->
+</Card>
+```
+
+<img src="https://ibb.co/c4EKK6" />
