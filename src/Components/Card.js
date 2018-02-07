@@ -22,6 +22,7 @@ class Card extends React.Component{
 const styles = {
 	card: {
 		padding: '1em',
+		margin: '1em',
 		boxShadow: '0px 2px 4px 0px rgba(0,0,0,0.2)',
 		fontFamily: 'sans-serif',
 	},
