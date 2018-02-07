@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
+import 'font-awesome/css/font-awesome.min.css';
 
 class Card extends React.Component{
 	render(){
@@ -8,9 +8,7 @@ class Card extends React.Component{
 			<div style={styles.card}>
 				{icon !== undefined && headerText!== undefined && 
 					<div>
-						<FontAwesome 
-							name = {icon} 
-							size={'2x'}/>
+						<i className = {`fa fa-${icon} fa-2x`} />
 						<span style={styles.headerText}>{headerText}</span>
 						<hr style={styles.divider}></hr>
 					</div>
