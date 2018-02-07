@@ -15,41 +15,6 @@ Renders 5 stars to select a rating out of 5.
 
 <img src="http://g.recordit.co/PG4jBeFA9E.gif" />
 
-## NavBar Component
-This component renders an app navigation component which can be used to change the view of the application. The component uses icons from FontAwesome.
-
-Usage
-
-```
-const navItems = [{
-      "label": "Home",
-      "id": "home",
-      "icon": "home"
-    }, {
-      "label": "Alerts",
-      "id": "alerts",
-      "icon": "exclamation-triangle"
-    }, {
-      "label": "Assets",
-      "id": "assets",
-      "icon": "linode"
-    }, {
-      "label": "Dashboards",
-      "id": "dashboards",
-      "icon": "tachometer"
-    }]
-    
-<NavBar vertical={true} items={navItems} />
-```
-
-Renders a vertical NavBar
-
-<img src="http://g.recordit.co/z1bih8rCYl.gif" />
-
-You can also render a horizontal bar by changing the vertical prop to {false}
-
-<img src="http://g.recordit.co/kSGzd2FDBM.gif" />
-
 ## Card Component
 
 Usage
@@ -58,5 +23,3 @@ Usage
       <-- Body -->
 </Card>
 ```
-
-<img src="https://image.ibb.co/mSWc6m/Card_Component.png" />
