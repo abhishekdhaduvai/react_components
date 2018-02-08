@@ -10,8 +10,9 @@ Usage
 
 ```
 <Facebook 
-  appId={your-app-Id} 
-  token={this.setFacebookToken} 
+  appId={218240972070365} 
+  onLogin={this.handleLogin}
+  onLogout={this.handleLogout}
   size='medium' 
   buttonText='login_with'
   showFriends='false'
