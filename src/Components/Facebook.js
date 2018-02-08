@@ -21,10 +21,10 @@ class Facebook extends React.Component {
 
       window.FB.Event.subscribe('auth.statusChange', response => {
         if(response.authResponse){
-          this.props.token(response)
+          this.props.onLogin(response)
         }
         else {
-          this.props.token('Error');
+          this.props.onLogout('logged out');
         }
       });
 

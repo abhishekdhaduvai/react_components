@@ -26,7 +26,8 @@ class App extends Component {
         */}
         <Facebook 
           appId={218240972070365} 
-          token={this.setFacebookToken} 
+          onLogin={this.handleLogin}
+          onLogout={this.handleLogout}
           size='medium' 
           buttonText='login_with'
           showFriends='false'
