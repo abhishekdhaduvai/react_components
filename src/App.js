@@ -44,6 +44,7 @@ class App extends Component {
             clientId='753560117840-taur5f0p90q09kmvtdc8p80j0e5mhi3j.apps.googleusercontent.com'
             signInText='Log In With Google'
             signOutText='Log Out'
+            scope='email'
             onLogin={this.googleLogin}
             onLogout={(e) => console.log('logged out')} />
         </div>

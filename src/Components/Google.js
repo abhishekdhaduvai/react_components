@@ -3,13 +3,16 @@ import React from 'react';
 class Google extends React.Component {
 
   state = {
-    signedIn: false,
-    auth: undefined,
+    signedIn: false, // check if the user is signed in
+    auth: undefined, // object to listen to signIn status change
   }
   
   componentDidMount() {
-
-    var signInChanged = () => {
+    
+    /*
+     * Triggered when the signIn status is changed.
+     */
+    const signInChanged = () => {
       const { auth } = this.state
       if(auth.isSignedIn.get()){
         this.setState({signedIn: true});
@@ -21,27 +24,29 @@ class Google extends React.Component {
       }
     }
     
-    var init = () => {
+    /*
+     * Inititalize Google API
+     */
+    const init = () => {
       const params = {
         client_id: this.props.clientId,
-        scope: 'profile'
+        scope: this.props.scope,
       }
       window.gapi.load('auth2', () => {
+        // Initialize the GoogleAuth object
         window.gapi.auth2.init(params)
-        .then(res => {
-          this.setState({auth: res})
-          if(res.isSignedIn.get()) {
-            this.setState({signedIn: true})
-          }
-          res.isSignedIn.listen(signInChanged);
-          if(res.isSignedIn.get()){
+        .then(gauth => {
+          this.setState({auth: gauth})
+          if(gauth.isSignedIn.get()) {
             this.setState({signedIn: true});
-            this.handleSignIn(res.currentUser.get());
+            this.handleSignIn(gauth.currentUser.get());
           }
+          gauth.isSignedIn.listen(signInChanged);
         });
       });
     }
 
+    // Inserts a new script tag with the Google API src
     (function(d, s, id, callback){
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {return;}
@@ -53,6 +58,7 @@ class Google extends React.Component {
 
   }
 
+  
   handleSignIn = (res) => {
     const basicProfile = res.getBasicProfile();
     res.googleId = basicProfile.getId();
@@ -87,13 +93,13 @@ class Google extends React.Component {
         {signedIn ? 
           <button 
             onClick={this.signOut}
-            style={initialStyle}>
+            style={styles.default}>
               {signOutText || 'Sign Out'}
           </button>
           :
           <button 
             onClick={this.signIn}
-            style={initialStyle}>
+            style={styles.default}>
               {signInText || 'Sign In'}
           </button>
         }
@@ -102,19 +108,21 @@ class Google extends React.Component {
   }
 }
 
-const initialStyle = {
-  display: 'inline-block',
-  background: '#d14836',
-  color: '#fff',
-  width: 150,
-  height: 29,
-  paddingTop: 5,
-  paddingBottom: 5,
-  borderRadius: 3,
-  border: '1px solid transparent',
-  fontSize: 13,
-  fontFamily: 'Roboto',
-  cursor: 'pointer',
+const styles = {
+  default: {
+    display: 'inline-block',
+    background: '#d14836',
+    color: '#fff',
+    width: 150,
+    height: 29,
+    paddingTop: 5,
+    paddingBottom: 5,
+    borderRadius: 3,
+    border: '1px solid transparent',
+    fontSize: 13,
+    fontFamily: 'Roboto',
+    cursor: 'pointer',
+  }
 }
 
 export default Google;
